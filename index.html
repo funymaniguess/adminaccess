@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>ADMIN_OVERRIDE</title>
+  <style>
+    body {
+      background: black;
+      color: #0f0;
+      font-family: monospace;
+      text-align: center;
+      margin-top: 20%;
+    }
+    input { background: #111; color: #0f0; border: none; padding: 10px; }
+    button { background: #0f0; color: black; border: none; padding: 10px; cursor: pointer; }
+    .error { color: red; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <h1>ACCESS REQUIRED</h1>
+  <p>Enter password to continue:</p>
+  <input type="password" id="pw" placeholder="•••••••">
+  <button onclick="check()">UNLOCK</button>
+  <p id="err" class="error"></p>
+
+  <script>
+    const PASSWORD = "VOIDACCESS"; // <-- change this
+    function check(){
+      const val = document.getElementById("pw").value;
+      if(val === PASSWORD){
+        location.href = "secret.html";
+      } else {
+        document.getElementById("err").textContent = "ACCESS DENIED.";
+      }
+    }
+  </script>
+</body>
+</html>
